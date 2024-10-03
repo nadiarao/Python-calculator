@@ -22,6 +22,9 @@ def divide(x, y):
         return "Error! Division by zero."
     return x / y
 
+def percentage(x, percent):
+    return (x * percent) / 100
+
 #User input and display the menu
 
 def calculator():
@@ -32,11 +35,12 @@ def calculator():
     print("4. Divide")
     print("5. Exponentiation (x^y)")
     print("6. Square Root (√x)")
+    print("7. percent")
 
     while True:
-        choice = input("Enter choice (1/2/3/4/5/6): ")
+        choice = input("Enter choice (1/2/3/4/5/6/7): ")
 
-        if choice in ['1', '2', '3', '4', '5', '6']:
+        if choice in ['1', '2', '3', '4', '5', '6', '7']:
             if choice == '6': #Square root only takes one input
                 num1 = float(input("Enter a number: "))
                 print(f"√{num1} = {square_root(num1)}")
@@ -53,11 +57,16 @@ def calculator():
                 elif choice == '4':
                     print(f"{num1} / {num2} = {divide(num1, num2)}")  
                 elif choice == '5':
-                    print(f"{num1} ^ {num2} = {exponentiate(num1, num2)}")     
+                    print(f"{num1} ^ {num2} = {exponentiate(num1, num2)}")    
+                elif choice == '7':
+                    num = float(input("Enter the number"))
+                    percent= float(input("Enter the percentage"))
+                    print(f"{percent}% of {num} = {percentage(num, percent)}")
+
         else:
             print("Invalid input. Please choose a valid operation.")
 
-        next_calculation = input("Do you want to perfotm another calculation? (yes/no): ")
+        next_calculation = input("Do you want to perform another calculation? (yes/no): ")
         if next_calculation.lower() != 'yes':
             break
 
